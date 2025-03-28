@@ -25,7 +25,7 @@ function App() {
   const filteredCountries = dataCountries.filter((country) => {
     return (
       country.name.common.toLowerCase().includes(countrySearch) &&
-      country.continents.toString().toLowerCase().includes(continentSearch)
+      country.continents.toString().includes(continentSearch)
     );
   });
 

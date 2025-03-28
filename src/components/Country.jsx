@@ -5,7 +5,7 @@ const Country = ({ item }) => {
     <li className="country">
       <p>{item.flag}</p>
       <h3>{item.name.common}</h3>
-      <p>{item.capital}</p>
+      <p>{item.capital.join(", ")}</p>
       <p>{item.continents.join(", ")}</p>
     </li>
   );

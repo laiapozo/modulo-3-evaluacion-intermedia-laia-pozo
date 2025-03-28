@@ -25,12 +25,13 @@ const Filters = ({ countryFilter, continentFilter }) => {
         onChange={handleContinentFilter}
       >
         <option value="">All</option>
-        <option value="africa">Africa</option>
-        <option value="north america">North America</option>
-        <option value="south america">South America</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="oceania">Oceania</option>
+        <option value="Africa">Africa</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Antarctica">Antarctica</option>
       </select>
     </section>
   );
