@@ -1,1 +1,19 @@
 @use 'core/reset';
+
+.header {
+    padding: 30px;
+    text-align: center;
+    background-color: #2222229a;
+    color: antiquewhite;
+}
+
+.main {
+    background-color: antiquewhite;
+}
+
+.hero {
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}

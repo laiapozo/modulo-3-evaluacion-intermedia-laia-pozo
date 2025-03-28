@@ -1,3 +1,5 @@
+import "../scss/components/Filters.scss";
+
 const Filters = ({ countryFilter, continentFilter }) => {
   const handleCountryFilter = (ev) => {
     countryFilter(ev.target.value);
@@ -7,7 +9,7 @@ const Filters = ({ countryFilter, continentFilter }) => {
   };
 
   return (
-    <section>
+    <section className="filters">
       <h4>Filters</h4>
       <label htmlFor="byCountry">By country</label>
       <input

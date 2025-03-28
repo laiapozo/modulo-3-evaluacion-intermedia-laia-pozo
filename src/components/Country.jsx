@@ -6,7 +6,7 @@ const Country = ({ item }) => {
       <p>{item.flag}</p>
       <h3>{item.name.common}</h3>
       <p>{item.capital}</p>
-      <p>{item.continents}</p>
+      <p>{item.continents.join(", ")}</p>
     </li>
   );
 };
