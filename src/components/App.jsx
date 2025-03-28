@@ -22,12 +22,13 @@ function App() {
     setNewCountry(newCountryValue);
   };
 
-  const filteredCountries = dataCountries.filter((country) => {
-    return (
-      country.name.common.toLowerCase().includes(countrySearch) &&
-      country.continents.toString().includes(continentSearch)
-    );
-  });
+  const filteredCountries = dataCountries
+    .filter((country) => {
+      return country.name.common.toLowerCase().includes(countrySearch);
+    })
+    .filter((country) => {
+      return country.continents.toString().includes(continentSearch);
+    });
 
   const allCountries = { ...filteredCountries, newCountry };
 
