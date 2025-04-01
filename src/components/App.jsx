@@ -6,9 +6,39 @@ import dataCountries from "../services/data.json";
 import { useState } from "react";
 
 function App() {
+  const [countries, setCountries] = useState(dataCountries);
   const [countrySearch, setCountrySearch] = useState("");
   const [continentSearch, setContinentSearch] = useState("");
-  const [newCountry, setNewCountry] = useState({});
+  const [name, setName] = useState("");
+  const [capital, setCapital] = useState("");
+  const [flag, setFlag] = useState("");
+  const [continent, setContinent] = useState("");
+
+  const onChangeName = (value) => {
+    setName(value);
+  };
+
+  const onChangeCapital = (value) => {
+    setCapital(value);
+  };
+
+  const onChangeFlag = (value) => {
+    setFlag(value);
+  };
+
+  const onChangeContinent = (value) => {
+    setContinent(value);
+  };
+
+  const handleSubmitForm = () => {
+    const newCountry = {
+      name: {common: name},
+      capital: [capital],
+      flag: flag,
+      continents: [continent],
+    };
+    setCountries([...countries, newCountry]);
+  };
 
   const handleCountry = (countryValue) => {
     setCountrySearch(countryValue.toLowerCase());
@@ -18,19 +48,13 @@ function App() {
     setContinentSearch(continentValue);
   };
 
-  const handleNewCountry = (newCountryValue) => {
-    setNewCountry(newCountryValue);
-  };
-
-  const filteredCountries = dataCountries
+  const filteredCountries = countries
     .filter((country) => {
       return country.name.common.toLowerCase().includes(countrySearch);
     })
     .filter((country) => {
       return country.continents.toString().includes(continentSearch);
     });
-
-  const allCountries = { ...filteredCountries, newCountry };
 
   return (
     <>
@@ -47,7 +71,13 @@ function App() {
             countryFilter={handleCountry}
             continentFilter={handleContinent}
           />
-          <AddCountry countryAdd={handleNewCountry} />
+          <AddCountry
+            onChangeName={onChangeName}
+            onChangeCapital={onChangeCapital}
+            onChangeFlag={onChangeFlag}
+            onChangeContinent={onChangeContinent}
+            onSubmit={handleSubmitForm}
+          />
         </section>
         <ListCountries countries={filteredCountries} />
       </main>
